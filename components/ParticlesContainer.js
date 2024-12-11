@@ -8,6 +8,7 @@ const ParticlesContainer = () => {
   }, []);
 
   const particlesLoaded = useCallback(async()=>{}, []);
+  return <></>
   return <>
     <Particles
     className='absolute w-full h-full translate-z-0'

@@ -8,8 +8,8 @@ import { fadeIn } from "../variants";
 const Home = () => {
   return <div className="h-full bg-primary/60">
     {/* text */}
-    <div className="w-full h-full bg-gradient-to-r from-primary/20 via-black/30">
-      <div className="container flex flex-col justify-center h-full text-center xl:pt-40 xl:text-left max-auto">
+    <div className="w-full h-full bg-gradient-to-r from-primary/20 via-black/30 to-black/30">
+      <div className="container flex flex-col justify-center h-full mx-auto text-center xl:pt-40 xl:text-left">
         {/* title */}
         <motion.h1 variants={fadeIn('down', 0.2)} initial="hidden" animate="show" exit="hidden" className="h1">
           Transforming Ideas <br/> Into{' '}
