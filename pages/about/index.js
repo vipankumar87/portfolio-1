@@ -1,4 +1,6 @@
+import React, {useState} from 'react';
 // icons
+
 import {
   FaHtml5,
   FaCss3,
@@ -88,8 +90,105 @@ const aboutData = [
   },
 ];
 
+import Avatar from '../../components/Avatar';
+import Circles from '../../components/Circles';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../../variants';
+
+//counter
+import CountUp from 'react-countup';
 const About = () => {
-  return <div>About</div>;
+  const [index, setIndex] = useState(0);
+
+  return <div className='h-full py-56 text-center bg-primary/30 xl:text-left'>
+    <Circles/>
+    {/* avatar image */}
+    <motion.div variants={fadeIn('right', 0.2)}
+    initial="hidden" animate="show" exit="hidden" className='absolute bottom-0 hidden xl:flex -left-[370px]'>
+      <Avatar/>
+    </motion.div>
+    <div className='container flex flex-col items-center h-full mx-auto xl:flex-row gap-x-6'>
+      {/* text */}
+      <div className='flex flex-col justify-center flex-1'>
+      <motion.h2 variants={fadeIn('right', 0.2)}
+    initial="hidden" animate="show" exit="hidden"
+           className='h2'>Captivating <span className='text-accent'>Stories</span> birth magnificent design.</motion.h2>
+        <motion.p variants={fadeIn('right', 0.4)}
+    initial="hidden" animate="show" exit="hidden" className='max-2-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'>15+ Years ago, I began freelancing as a developer. Since then, I've done remote work for agencies, consulted for startups, and collaborated on digital products for bussiness and consumer use.</motion.p>
+        {/* counters */}
+        <motion.div variants={fadeIn('right', 0.2)}
+    initial="hidden" animate="show" exit="hidden" className='hidden mx-auto mb-8 md:flex md:max-w-xl xl:max-w-none xl:mx-0'>
+          <div className='flex flex-1 xl:gap-x-6'>
+            {/* experience */}
+            <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
+              <div className='mb-2 text-2xl font-extrabold xl:text-4xl text-accent '>
+                <CountUp start={0} end={15} duration={5}/>+
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Years of experience</div>
+            </div>
+            {/* client */}
+            <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
+              <div className='mb-2 text-2xl font-extrabold xl:text-4xl text-accent '>
+                <CountUp start={0} end={1250} duration={5}/>+
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>
+                Satisfied Clients
+              </div>
+            </div>
+            {/* finished projects */}
+            <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
+              <div className='mb-2 text-2xl font-extrabold xl:text-4xl text-accent '>
+                <CountUp start={0} end={6500} duration={5}/>+
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>
+                Finished Projects
+              </div>
+            </div>
+
+            {/* awards */}
+            <div className='relative flex-1'>
+              <div className='mb-2 text-2xl font-extrabold xl:text-4xl text-accent '>
+                <CountUp start={0} end={8} duration={5}/>+
+              </div>
+              <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>
+                Winning awards
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
+      </div>
+      {/* info */}
+      <motion.div variants={fadeIn('right', 0.2)}
+    initial="hidden" animate="show" exit="hidden" className='flex flex-col w-full xl:max-w-[48%] h-[480px]'>
+        <div className='flex mx-auto mb-4 gap-x-4 xl:gap-x-8 xl:mx-0'>
+          {aboutData.map((item, itemIndex)=>(
+            <div className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} relative capitalize cursor-pointer xl:text-lg 
+            after:w-8 
+            after:h-[2px] 
+          after:bg-white 
+            after:absolute 
+            after:bottom-1 
+            after:left-0`} key={itemIndex} onClick={()=> setIndex(itemIndex)}>{item.title}</div>
+          ))}
+        </div>
+        <div className='flex flex-col items-center py-2 xl:py-6 gap-y-2 xl:gap-y-4 xl:items-start'>
+          {aboutData[index].info.map((item, itemIndex)=>(
+            <div key={itemIndex} className='flex flex-col items-center flex-1 md:flex-row max-w-max gap-x-2 text-white/60'>
+              <div className='mb-2 font-light md:mb-0'>{item.title}</div>
+              <div className='hidden md:flex'>-</div>
+              <div className=''>{item.stage}</div>
+              <div className='flex gap-x-4'>
+                {item.icons?.map((icon, itemIndex)=>(
+                  <div className='text-2xl text-white'>{icon}</div>
+                ))}              
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </div>;
 };
 
 export default About;

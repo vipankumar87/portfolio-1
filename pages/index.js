@@ -17,7 +17,7 @@ const Home = () => {
         </motion.h1>
         {/* subtitle */}
         <motion.p variants={fadeIn('down', 0.3)} initial="hidden" animate="show" exit="hidden" className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16">
-        At the intersection of creativity and technology, we take your concepts and turn them into dynamic digital experiences. Whether it’s designing cutting-edge apps, developing immersive websites, or building intuitive software solutions, we bring your visions to life with precision and innovation. Our team blends creative thinking with technical expertise, ensuring that every idea, no matter how complex, becomes a seamless, functional digital reality. With every project, we aim to make the impossible possible, helping you stay ahead in the ever-evolving digital world.
+        At the intersection of creativity and technology, we take your concepts and turn them into dynamic digital experiences.
         </motion.p>
         {/* btn */}
         <div className="relative flex justify-center xl:hidden">
